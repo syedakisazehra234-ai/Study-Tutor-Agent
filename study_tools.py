@@ -4,7 +4,7 @@ from crewai.tools import BaseTool
 class CalculatorTool(BaseTool):
     name: str = "Calculator"
     description: str = (
-        "Useful for performing simple mathematical calculations. "
+        "Performs simple mathematical calculations. "
         "Input should be a mathematical expression such as 25*4 or 100/5."
     )
 
