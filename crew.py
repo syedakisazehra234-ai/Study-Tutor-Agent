@@ -1,5 +1,5 @@
 from crewai import Agent, Task, Crew, Process, LLM
-from tools import CalculatorTool, StudyPlannerTool
+from study_tools import CalculatorTool, StudyPlannerTool
 from memory import create_memory
 from config import MODEL_NAME
 
