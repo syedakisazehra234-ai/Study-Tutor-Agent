@@ -37,7 +37,7 @@ load_css()
 
 st.markdown(
     """
-    <div class="hero-container">
+    <div class="hero-section">
 
         <div class="status-pill">
             <span class="status-dot"></span>
@@ -297,7 +297,7 @@ if start:
 
 st.markdown(
     """
-    <div class="footer">
+    <div class="footer-section">
 
         <div class="footer-line"></div>
 
