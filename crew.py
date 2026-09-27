@@ -1,4 +1,12 @@
 from crewai import Agent, Task, Crew, Process, LLM
+
+# Fix CrewAI + Groq cache_breakpoint incompatibility
+try:
+    import crewai.llms.cache as crew_cache
+    crew_cache.mark_cache_breakpoint = lambda msg: msg
+except Exception:
+    pass
+
 from study_tools import CalculatorTool, StudyPlannerTool
 from memory import create_memory
 from config import MODEL_NAME
