@@ -1,9 +1,7 @@
 from crewai import Agent, Task, Crew, Process, LLM
-
-from config import MODEL_NAME
 from tools import CalculatorTool, StudyPlannerTool
 from memory import create_memory
-
+from config import MODEL_NAME
 
 def create_study_crew():
 
