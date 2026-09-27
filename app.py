@@ -38,7 +38,6 @@ load_css()
 st.markdown(
     """
     <div class="hero-section">
-
         <div class="status-pill">
             <span class="status-dot"></span>
             AI STUDY ASSISTANT
@@ -53,7 +52,6 @@ st.markdown(
             Your personalized AI tutor for understanding concepts,
             preparing for exams, and mastering difficult topics.
         </p>
-
     </div>
     """,
     unsafe_allow_html=True
