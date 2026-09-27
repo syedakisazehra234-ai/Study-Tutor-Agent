@@ -1,0 +1,725 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+.stApp {
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(0, 195, 255, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(120, 70, 255, 0.10),
+            transparent 30%
+        ),
+        #050816;
+
+    color: #f5f7ff;
+}
+
+
+/* =========================================================
+   REMOVE STREAMLIT DEFAULT ELEMENTS
+   ========================================================= */
+
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+   ========================================================= */
+
+.block-container {
+
+    max-width: 1100px;
+
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-container {
+
+    text-align: center;
+
+    padding:
+        40px
+        20px
+        50px
+        20px;
+}
+
+
+/* =========================================================
+   STATUS PILL
+   ========================================================= */
+
+.status-pill {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        8px
+        16px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(0, 210, 255, 0.08);
+
+    border:
+        1px solid
+        rgba(0, 210, 255, 0.25);
+
+    color: #56ddff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    box-shadow:
+        0 0 20px
+        rgba(0, 210, 255, 0.08);
+}
+
+
+/* =========================================================
+   STATUS DOT
+   ========================================================= */
+
+.status-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #00e5ff;
+
+    box-shadow:
+        0 0 10px
+        #00e5ff;
+}
+
+
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
+.hero-title {
+
+    font-size: clamp(
+        42px,
+        7vw,
+        76px
+    );
+
+    line-height: 0.98;
+
+    font-weight: 800;
+
+    letter-spacing: -3px;
+
+    margin:
+        25px
+        0
+        20px;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   GRADIENT TEXT
+   ========================================================= */
+
+.hero-title span {
+
+    background:
+        linear-gradient(
+            90deg,
+            #00e5ff,
+            #5c7cff,
+            #a855f7
+        );
+
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+
+/* =========================================================
+   HERO SUBTITLE
+   ========================================================= */
+
+.hero-subtitle {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    color: #9ba7c5;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    margin:
+        15px
+        0
+        25px;
+
+    color: #ffffff;
+}
+
+
+.heading-icon {
+
+    color: #00e5ff;
+
+    margin-right: 8px;
+
+    text-shadow:
+        0 0 15px
+        rgba(0, 229, 255, 0.8);
+}
+
+
+/* =========================================================
+   INPUT LABELS
+   ========================================================= */
+
+.input-label {
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: #71809f;
+
+    margin:
+        12px
+        0
+        8px;
+}
+
+
+/* =========================================================
+   TEXT INPUT
+   ========================================================= */
+
+.stTextInput input {
+
+    background:
+        rgba(15, 24, 48, 0.75) !important;
+
+    border:
+        1px solid
+        rgba(100, 130, 180, 0.20) !important;
+
+    border-radius: 12px !important;
+
+    color: #ffffff !important;
+
+    padding:
+        14px
+        16px !important;
+
+    transition: 0.2s ease;
+}
+
+
+.stTextInput input:focus {
+
+    border:
+        1px solid
+        #00d9ff !important;
+
+    box-shadow:
+        0 0 0 1px
+        rgba(0, 217, 255, 0.2),
+        0 0 20px
+        rgba(0, 217, 255, 0.08) !important;
+}
+
+
+/* =========================================================
+   SELECT BOX
+   ========================================================= */
+
+.stSelectbox > div > div {
+
+    background:
+        rgba(15, 24, 48, 0.75) !important;
+
+    border:
+        1px solid
+        rgba(100, 130, 180, 0.20) !important;
+
+    border-radius: 12px !important;
+
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   SLIDER
+   ========================================================= */
+
+.stSlider {
+
+    padding-top: 8px;
+}
+
+
+.stSlider [data-baseweb="slider"] {
+
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   TIME DISPLAY
+   ========================================================= */
+
+.time-display {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 5px;
+
+    padding:
+        12px
+        15px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(0, 229, 255, 0.05);
+
+    border:
+        1px solid
+        rgba(0, 229, 255, 0.12);
+
+    color: #9ba7c5;
+}
+
+
+.time-display strong {
+
+    color: #00e5ff;
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   TIP CARD
+   ========================================================= */
+
+.tip-card {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 22px;
+
+    padding:
+        15px
+        17px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 255, 0.06),
+            rgba(130, 80, 255, 0.06)
+        );
+
+    border:
+        1px solid
+        rgba(120, 140, 190, 0.15);
+}
+
+
+.tip-icon {
+
+    font-size: 20px;
+}
+
+
+.tip-card strong {
+
+    color: #dce8ff;
+}
+
+
+.tip-card p {
+
+    margin: 4px 0 0;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    color: #7f8ba7;
+}
+
+
+/* =========================================================
+   MAIN BUTTON
+   ========================================================= */
+
+.stButton > button {
+
+    min-height: 58px;
+
+    border: none !important;
+
+    border-radius: 14px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #00b8ff,
+            #4361ee,
+            #8b5cf6
+        ) !important;
+
+    color: white !important;
+
+    font-size: 14px !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0, 190, 255, 0.20);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.stButton > button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 12px 40px
+        rgba(0, 190, 255, 0.35);
+}
+
+
+/* =========================================================
+   RESULT HEADER
+   ========================================================= */
+
+.result-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 55px;
+
+    margin-bottom: 20px;
+}
+
+
+.result-icon {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 229, 255, 0.15),
+            rgba(130, 80, 255, 0.15)
+        );
+
+    border:
+        1px solid
+        rgba(0, 229, 255, 0.20);
+
+    font-size: 25px;
+
+    box-shadow:
+        0 0 30px
+        rgba(0, 229, 255, 0.08);
+}
+
+
+.result-header h2 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 25px;
+}
+
+
+.result-header p {
+
+    margin: 4px 0 0;
+
+    color: #7583a4;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   RESULT CARD
+   ========================================================= */
+
+.result-card {
+
+    padding:
+        30px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(10, 18, 38, 0.75);
+
+    border:
+        1px solid
+        rgba(100, 140, 200, 0.15);
+
+    box-shadow:
+        0 20px 70px
+        rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   MARKDOWN
+   ========================================================= */
+
+.result-card h1,
+.result-card h2,
+.result-card h3 {
+
+    color: #ffffff;
+}
+
+
+.result-card h2 {
+
+    color: #5de5ff;
+
+    margin-top: 30px;
+}
+
+
+.result-card h3 {
+
+    color: #b7c7ff;
+}
+
+
+.result-card p,
+.result-card li {
+
+    color: #b4bfd5;
+
+    line-height: 1.75;
+}
+
+
+.result-card strong {
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   CODE / BLOCKS
+   ========================================================= */
+
+.result-card code {
+
+    color: #62eaff;
+
+    background:
+        rgba(0, 229, 255, 0.07);
+
+    padding:
+        3px
+        6px;
+
+    border-radius: 5px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.footer {
+
+    text-align: center;
+
+    margin-top: 80px;
+
+    padding-bottom: 30px;
+}
+
+
+.footer-line {
+
+    width: 100%;
+
+    height: 1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(100, 130, 180, 0.25),
+            transparent
+        );
+
+    margin-bottom: 25px;
+}
+
+
+.footer p {
+
+    color: #65728f;
+
+    font-size: 13px;
+}
+
+
+.footer span {
+
+    color: #4ddcff;
+}
+
+
+.footer small {
+
+    color: #4d5972;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   MOBILE RESPONSIVENESS
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .block-container {
+
+        padding:
+            1.5rem
+            1rem;
+    }
+
+
+    .hero-container {
+
+        padding:
+            25px
+            10px
+            35px;
+    }
+
+
+    .hero-title {
+
+        letter-spacing: -2px;
+    }
+
+
+    .hero-subtitle {
+
+        font-size: 15px;
+    }
+
+
+    .result-card {
+
+        padding: 20px;
+    }
+
+
+    .result-header {
+
+        align-items: flex-start;
+    }
+
+
+    .result-header h2 {
+
+        font-size: 20px;
+    }
+}
