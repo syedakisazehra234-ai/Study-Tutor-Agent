@@ -13,136 +13,79 @@ from config import MODEL_NAME
 
 def create_study_crew():
 
-    # -------------------------
-    # LLM
-    # -------------------------
+    memory = create_memory()
 
     llm = LLM(
         model=f"groq/{MODEL_NAME}",
         temperature=0.3
     )
 
-    # -------------------------
-    # Tools
-    # -------------------------
-
-    calculator = CalculatorTool()
-    study_planner = StudyPlannerTool()
-
     tools = [
-        calculator,
-        study_planner
+        CalculatorTool(),
+        StudyPlannerTool()
     ]
 
-    # -------------------------
-    # Memory
-    # -------------------------
-
-    memory = create_memory()
-
-    # -------------------------
-    # Agent
-    # -------------------------
-
     tutor = Agent(
-        role="Personal Study Tutor",
-
-        goal=(
-            "Help students understand academic topics clearly, "
-            "efficiently and according to their learning level."
-        ),
-
+        role="AI Study Tutor",
+        goal="Help students understand academic topics clearly and prepare effectively for exams.",
         backstory=(
-            "You are an experienced academic tutor. "
-            "You explain difficult concepts using simple language, "
-            "adapt explanations to the student's level, "
-            "focus on conceptual understanding, "
-            "and help students prepare effectively for exams."
+            "You are a patient and structured academic tutor. "
+            "You explain difficult concepts in simple language and "
+            "help students prepare efficiently for examinations."
         ),
-
         llm=llm,
-
         tools=tools,
-
         memory=memory,
-
         verbose=True,
-
         allow_delegation=False
     )
 
-    # -------------------------
-    # Task
-    # -------------------------
-
-    study_task = Task(
-
+    task = Task(
         description="""
-        Create a personalized study session for the student.
+        Create a comprehensive study guide based on the student's inputs.
 
-        Student information:
+        Subject: {subject}
+        Topic: {topic}
+        Student level: {level}
+        Learning goal: {goal}
+        Available study time: {study_time}
 
-        Subject:
-        {subject}
-
-        Topic:
-        {topic}
-
-        Student Level:
-        {level}
-
-        Learning Goal:
-        {goal}
-
-        Available Study Time:
-        {study_time} minutes
-
-        Previous learning context:
-        {previous_context}
-
-        Your response must contain:
+        Provide:
 
         1. Topic overview
         2. Simple explanation
         3. Core concepts
         4. Important exam points
-        5. Common mistakes or misconceptions
+        5. Common mistakes
         6. Memory aid
         7. Practice questions
         8. Five MCQs with answers
-        9. A study plan based on the available time
+        9. Personalized study plan
 
-        Adapt the difficulty to the student's level.
-
-        If a tool is useful, use the appropriate tool.
-
-        Do not make up citations or claim that you consulted
-        external sources when you did not.
+        Keep the explanation appropriate for the student's level.
         """,
 
         expected_output="""
-        A clear, structured and student-friendly study session
-        containing explanations, key concepts, exam points,
-        practice questions, MCQs and a time-based study plan.
+        A clear and structured study guide containing:
+        - Topic overview
+        - Simple explanation
+        - Core concepts
+        - Exam points
+        - Common mistakes
+        - Memory aid
+        - Practice questions
+        - 5 MCQs with answers
+        - Study plan
         """,
 
         agent=tutor
     )
 
-    # -------------------------
-    # Crew
-    # -------------------------
-
     crew = Crew(
-
         agents=[tutor],
-
-        tasks=[study_task],
-
+        tasks=[task],
         process=Process.sequential,
-
         memory=memory,
-
         verbose=True
     )
 
