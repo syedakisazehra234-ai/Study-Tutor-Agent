@@ -4,49 +4,48 @@ from crewai.tools import BaseTool
 class CalculatorTool(BaseTool):
     name: str = "Calculator"
     description: str = (
-        "Useful for performing basic mathematical calculations. "
-        "Input should be a simple mathematical expression such as 25*4 or 100/5."
+        "Useful for performing simple mathematical calculations. "
+        "Input should be a mathematical expression such as 25*4 or 100/5."
     )
 
     def _run(self, expression: str) -> str:
+        allowed = "0123456789+-*/(). %"
+
+        if not all(char in allowed for char in expression):
+            return "Invalid mathematical expression."
+
         try:
-            allowed_characters = "0123456789+-*/(). "
-
-            if not all(char in allowed_characters for char in expression):
-                return "Invalid mathematical expression."
-
             result = eval(expression, {"__builtins__": {}}, {})
             return str(result)
-
         except Exception:
-            return "Unable to calculate the expression."
+            return "Could not calculate the expression."
 
 
 class StudyPlannerTool(BaseTool):
     name: str = "Study Planner"
     description: str = (
-        "Creates a simple study schedule based on available study time "
-        "in minutes."
+        "Creates a simple study schedule based on available study time."
     )
 
-    def _run(self, minutes: int) -> str:
-
+    def _run(self, study_time: str) -> str:
         try:
-            minutes = int(minutes)
-
-            if minutes <= 0:
-                return "Study time must be greater than zero."
-
-            explanation = round(minutes * 0.40)
-            practice = round(minutes * 0.30)
-            revision = minutes - explanation - practice
-
+            minutes = int(study_time)
+        except ValueError:
             return (
-                f"Study plan for {minutes} minutes:\n"
-                f"- {explanation} minutes: Learn/explain the concept\n"
-                f"- {practice} minutes: Practice questions\n"
-                f"- {revision} minutes: Revision and recall"
+                "Please provide study time as a number of minutes, "
+                "for example 60."
             )
 
-        except Exception:
-            return "Please provide study time as a number of minutes."
+        if minutes <= 0:
+            return "Study time must be greater than zero."
+
+        explanation = round(minutes * 0.40)
+        practice = round(minutes * 0.30)
+        revision = minutes - explanation - practice
+
+        return (
+            f"Study Plan for {minutes} minutes:\n"
+            f"- Explanation & learning: {explanation} minutes\n"
+            f"- Practice & questions: {practice} minutes\n"
+            f"- Revision & recall: {revision} minutes"
+        )
